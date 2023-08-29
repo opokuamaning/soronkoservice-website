@@ -111,7 +111,7 @@ const email = document.getElementById("email");
 const message = document.getElementById("message");
 
 const sendMail = () => {
-  console.log("Sending email...");
+  //console.log("Sending email...");
   let params = {
     name: document.getElementById("fname").value,
     email: document.getElementById("email").value,
@@ -136,7 +136,7 @@ form?.addEventListener("submit", (e) => {
   //console.log("clicked", form);
   if(checkInputs()){
     sendMail();
-    //window.location.href = "/index.html"
+    //window.location.href = "/thank-you.html"
   }
   
   
@@ -208,13 +208,13 @@ appForm?.addEventListener("submit", (e) => {
 
   if(checkAppInputs()){
     sendAppMail()
-    //window.location.href = "/index.html"
+    //window.location.href = "/thank-you.html"
   }
   
 });
 
 const sendAppMail = () => {
-  console.log("Sending email...");
+  //console.log("Sending email...");
   let params = {
     appName: document.getElementById("app-name").value,
     appEmail: document.getElementById("app-email").value,
