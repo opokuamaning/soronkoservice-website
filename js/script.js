@@ -111,7 +111,7 @@ const email = document.getElementById("email");
 const message = document.getElementById("message");
 
 const sendMail = () => {
-  console.log("Sending email...")
+  console.log("Sending email...");
   let params = {
     name: document.getElementById("fname").value,
     email: document.getElementById("email").value,
@@ -131,11 +131,14 @@ const sendMail = () => {
     .catch((error) => console.log(error));
 };
 
-form.addEventListener("submit", (e) => {
+form?.addEventListener("submit", (e) => {
   e.preventDefault();
-
-  checkInputs();
-  sendMail();
+  //console.log("clicked", form);
+  if(checkInputs()){
+    sendMail();
+    //window.location.href = "/index.html"
+  }
+  
   
 });
 const checkInputs = () => {
@@ -147,7 +150,8 @@ const checkInputs = () => {
   if (nameValue === "") {
     // show error
     // add success class
-    setErrorFor(fName, "Name cannot be blank");
+   setErrorFor(fName, "Name cannot be blank");
+   return false
     // console.log("Clicked")
   } else {
     // add success class
@@ -155,16 +159,20 @@ const checkInputs = () => {
   }
   if (emailValue === "") {
     setErrorFor(email, "Email cannot be blank");
+    return false
   } else if (!isEmail(emailValue)) {
     setErrorFor(email, "Email is not valid");
+    return false
   } else {
     setSuccessFor(email);
   }
   if (messageValue === "") {
     setErrorFor(message, "Message cannot be blank");
+    return false
   } else {
     setSuccessFor(message);
   }
+  return true
 };
 
 const setErrorFor = (input, message) => {
@@ -186,4 +194,110 @@ const isEmail = (email) => {
   return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
     email
   );
+};
+
+const appForm = document.getElementById("app-form");
+const appName = document.getElementById("app-name");
+const appEmail = document.getElementById("app-email");
+const appPhone = document.getElementById("app-phone");
+const appDateTime = document.getElementById("app-date-time");
+const appMessage = document.getElementById("app-message");
+
+appForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  if(checkAppInputs()){
+    sendAppMail()
+    //window.location.href = "/index.html"
+  }
+  
+});
+
+const sendAppMail = () => {
+  console.log("Sending email...");
+  let params = {
+    appName: document.getElementById("app-name").value,
+    appEmail: document.getElementById("app-email").value,
+    appPhone: document.getElementById("app-phone").value,
+    appMessage: document.getElementById("app-message").value,
+    appDateTime: document.getElementById("app-date-time").value,
+  };
+  const serviceID = "service_j8pbjfk";
+  const templateID = "template_r5id5q9";
+  emailjs
+    .send(serviceID, templateID, params)
+    .then((response) => {
+      document.getElementById("app-name").value = "";
+      document.getElementById("app-email").value = "";
+      document.getElementById("app-phone").value = "";
+      document.getElementById("app-message").value = "";
+      document.getElementById("app-date-time").value = "";
+      console.log(response);
+      alert("Message Sent");
+    })
+    .catch((error) => console.log(error));
+};
+
+
+const checkAppInputs = () => {
+  const appNameValue = appName.value.trim();
+  const appEmailValue = appEmail.value.trim();
+  const appPhoneValue = appPhone.value.trim();
+  const appDateTimeValue = appDateTime.value.trim();
+  const appMessageValue = appMessage.value.trim();
+
+  if (appNameValue === "") {
+    // show error
+    // add success class
+    setErrorFor(appName, "Name cannot be blank");
+    return false
+    // console.log("Clicked")
+  } else {
+    // add success class
+    setSuccessFor(appName);
+  }
+  if (appEmailValue === "") {
+    // show error
+    // add success class
+    setErrorFor(appEmail, "Name cannot be blank");
+    return false
+    // console.log("Clicked")
+  } else if (!isEmail(appEmailValue)) {
+    setErrorFor(appEmail, "Email is not valid");
+    return false
+  } else {
+    // add success class
+    setSuccessFor(appEmail);
+  }
+  if (appPhoneValue === "") {
+    // show error
+    // add success class
+    setErrorFor(appPhone, "Name cannot be blank");
+    return false
+    // console.log("Clicked")
+  } else {
+    // add success class
+    setSuccessFor(appPhone);
+  }
+  if (appDateTimeValue === "") {
+    // show error
+    // add success class
+    setErrorFor(appDateTime, "Name cannot be blank");
+    return false
+    // console.log("Clicked")
+  } else {
+    // add success class
+    setSuccessFor(appDateTime);
+  }
+  if (appMessageValue === "") {
+    // show error
+    // add success class
+    setErrorFor(appMessage, "Name cannot be blank");
+    return false
+    // console.log("Clicked")
+  } else {
+    // add success class
+    setSuccessFor(appMessage);
+  }
+  return true
 };

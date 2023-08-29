@@ -1252,7 +1252,7 @@ body.nav-active { overflow: hidden; }
   padding: 10px;
   width: 100%;
 }
-.form #message{
+.form #message, .form #app-message{
   width: 100%;
   border: 2px solid #f0f0f0;
   border-radius: 5px;

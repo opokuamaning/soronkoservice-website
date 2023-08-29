@@ -169,7 +169,7 @@
           aria-label="home"
         >
           <div class="container">
-            <h1 class="contact-head-text">Contact Us</h1>
+            <h1 class="contact-head-text">Appointment</h1>
           </div>
         </section>
       </article>
@@ -177,44 +177,58 @@
         <div class="form-body">
           <div class="form-container">
             <div class="form-header">
-              <h2>Send Us A Message</h2>
+              <h2>Schedule An Appointment</h2>
             </div>
-            <form action="" class="form" id="form">
+            <form action="" class="form" id="app-form">
               <div class="formcontrol">
-                <label for="name">Name</label>
-                <input type="text" placeholder="Enter your name" id="fname" />
+                <label for="app-name">Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  id="app-name"
+                />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small class="small"> Error Message </small>
               </div>
               <div class="formcontrol">
-                <label for="name">Email</label>
-                <input type="email" placeholder="Enter your name" id="email" />
+                <label for="app-">Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your name"
+                  id="app-email"
+                />
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small> Error Message </small>
               </div>
-              <form action="" class="form" id="form">
-                <div class="formcontrol">
-                  <label for="name">Phone Number</label>
-                  <input type="text" placeholder="Enter your name" id="phone" />
-                  <i class="fas fa-check-circle"></i>
-                  <i class="fas fa-exclamation-circle"></i>
-                  <small class="small"> Error Message </small>
-                </div>
-                <form action="" class="form" id="form">
-                    <div class="formcontrol">
-                      <label for="name">Appointment Date and time</label>
-                      <input type="datetime-local" placeholder="Enter your name" id="phone" />
-                      <i class="fas fa-check-circle"></i>
-                      <i class="fas fa-exclamation-circle"></i>
-                      <small class="small"> Error Message </small>
-                    </div>
               <div class="formcontrol">
-                <label for="message">Address</label>
+                <label for="app-phone">Phone Number</label>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  id="app-phone"
+                />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="small"> Error Message </small>
+              </div>
+              <div class="formcontrol">
+                <label for="app-date-time">Appointment Date and time</label>
+                <input
+                  type="datetime-local"
+                  placeholder="Enter your name"
+                  id="app-date-time"
+                />
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small class="small"> Error Message </small>
+              </div>
+              <div class="formcontrol">
+                <label for="app-message">Address</label>
                 <textarea
-                  name="message"
-                  id="message"
+                  name="app-message"
+                  id="app-message"
                   cols="30"
                   rows="3"
                 ></textarea>
@@ -461,6 +475,7 @@
     - custom js link
   -->
     <script src="./js/script.js"></script>
+    <!-- <script src="./js/make-appointment.js"></script> -->
 
     <!-- 
     - ionicon link
