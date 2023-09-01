@@ -127,6 +127,7 @@ const sendMail = () => {
       document.getElementById("message").value = "";
       console.log(response);
       alert("Message Sent");
+      window.location.href = "/thank-you.html"
     })
     .catch((error) => console.log(error));
 };
@@ -208,7 +209,7 @@ appForm?.addEventListener("submit", (e) => {
 
   if(checkAppInputs()){
     sendAppMail()
-    //window.location.href = "/thank-you.html"
+   
   }
   
 });
@@ -234,6 +235,7 @@ const sendAppMail = () => {
       document.getElementById("app-date-time").value = "";
       console.log(response);
       alert("Message Sent");
+      window.location.href = "/thank-you.html"
     })
     .catch((error) => console.log(error));
 };
